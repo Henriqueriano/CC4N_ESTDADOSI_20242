@@ -15,17 +15,20 @@ int main( int arg, int args[] )
 }
 void selectionSort( int* v, int l )
 {
-	int bucket;
-	for ( int i = 0 ; i < l ; i ++ )
-		for ( int j = i + 1 ; j < l ; j ++ ) 
+	int bucket, minBucket, maxBucket;
+	for ( int i = 0 ; i < l ; i ++ ) 
+	{
+		for ( int j = 0 ; j < l ; j ++ ) 
 		{
-			if( v[j] < v[i] ) 
-			{
-				bucket = v[i];
-				v[i] = v[j];
-				v[j] = bucket;
+			if (v[i] <= v[j] )
+			{		
+				minBucket = i;
+				maxBucket = j;
 			}
+			bucket = v[minBucket];
+			v[minBucket] = v[maxBucket];
+			v[maxBucket] = bucket;
 		}
-
+	}
 }
 void seeArray( int* v, int l) {for ( int i = 0 ; i < l ; i ++ ) printf( "%d ", v[i] ); }
