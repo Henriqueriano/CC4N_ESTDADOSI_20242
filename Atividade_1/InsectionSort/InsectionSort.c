@@ -15,7 +15,6 @@ int main( int arg, int args[] )
 
 	return 1; 
 }
-
 void insectionSort( int* v, int l) 
 {
 	int bucket;

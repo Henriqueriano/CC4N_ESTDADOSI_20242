@@ -3,7 +3,7 @@
 #define LENGHT_ARRAY 10
 void seeTheVetor( int* v, int l ) ;
 void bubbleSort ( int* v, int l  );
-int main( void ) 
+int main( int arg, int args[] ) 
 {
 	int v[ LENGHT_ARRAY ] = { 9,7,8,10,6,5,3,4,2,1 };
 	printf( "Array before bubble sort: "           );
@@ -27,12 +27,7 @@ void bubbleSort( int* v, int l )
 				v[j] = temp;
 			}
 		}
-	}
-	
+	}	
 }
-void seeTheVetor(int* v, int l) 
-{
-	for ( int i = 0 ; i < l ; i ++ )
-		printf("%d ", v[i]);
-	printf("\n");
-}
+void seeTheVetor(int* v, int l) { for ( int i = 0 ; i < l ; i ++ ) printf("%d ", v[i]); printf("\n"); }
+
