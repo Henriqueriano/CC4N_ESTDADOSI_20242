@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <math.h>
 #define ARRAY_LENGHT 10
 void printArray( int *a, int l ); 
 void swap( int *a, int i, int j); 
-void insectionSort (int *a, int l); 
+void insectionSort (int *a, int starts, int ends);
 void shellsort(int *a, int l); 
 int main() 
 {
-				int a[] = {1,2,6,5,9,8,7,3,0,4};
+				int a[] = {1,2,6,5,9,8,70,3,0,4};
 				printArray(a, ARRAY_LENGHT);
 				shellsort(a, ARRAY_LENGHT);
 				printArray(a, ARRAY_LENGHT);
@@ -26,24 +27,20 @@ void swap( int *a, int i, int j)
 				a[j] = bucket;
 }
 // The shell sort uses the insection sort.
-void insectionSort (int *a, int l) 
+void insectionSort (int *a, int starts, int ends) 
 {
-				for (int i = 0 ; i < l ; i ++ ) 
+				for (int i = starts ; i < ends ; i ++ ) 
 				{
-								for ( int j = 0 ; j < l ; j ++ )
+								for ( int j = 0 ; j < ends ; j ++ )
 												if (a[i] < a[j])
 																swap(a, i, j);
 				}
 }
 void shellsort(int *a, int l) 
 {
-				int h, he;
-				h = 2;
-				while(h % 2 != 0) 
-				{
-								
-				}
-
+				int aStart = ceil(l/2);	 
+				insectionSort(a, 0, aStart);
+				insectionSort(a, aStart, l);
 }
 
 
